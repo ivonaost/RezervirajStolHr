@@ -1,0 +1,137 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    // Bootstrap CSS
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+    title RezervirajStol.hr
+  body(style='background-color: #f5f5f5')
+    
+    // naslov
+    .jumbotron.jumbotron-fluid(style='background-color: #9179b9; margin:0')
+      .container.text-white
+        h1.display-3
+          img(src='./assets/images/icon.png', alt='icon', style='width: 90px')
+          |  RezervirajStol.hr
+   
+    // navigacija
+    nav.nav.navbar.navbar-expand-lg.bg-dark.navbar-dark.sticky-top.mb-3(style='-webkit-box-shadow: 0px 10px 24px 0px rgba(0,0,0,0.75);\
+    -moz-box-shadow: 0px 10px 24px 0px rgba(0,0,0,0.75);\
+    box-shadow: 0px 10px 24px 0px rgba(0,0,0,0.75);\
+    border-top: 2px solid white')
+      a.navbar-brand(href='/') Početna
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavAltMarkup', aria-controls='navbarNavAltMarkup', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarNavAltMarkup.collapse.navbar-collapse.justify-content-end
+        ul.navbar-nav.nav
+          li.nav-item
+            a.nav-link.disabled(href='#') Restorani
+          li.nav-item
+            a.nav-link.disabled(href='#') Akcije!
+          li.nav-item
+            a.nav-link(style='cursor: pointer', data-toggle='modal', data-target='#registerModal') Registracija
+          li.nav-item
+            a.nav-link(style='cursor: pointer', data-toggle='modal', data-target='#loginModal') Prijava
+   
+    // Login
+    #loginModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
+      .modal-dialog.modal-dialog-centered(role='document')
+        .modal-content.bg-dark.text-white.p-5(style='-webkit-box-shadow: 0px -1px 43px 14px rgba(0,0,0,0.47);\
+        -moz-box-shadow: 0px -1px 43px 14px rgba(0,0,0,0.47);\
+        box-shadow: 0px -1px 43px 14px rgba(0,0,0,0.47);')
+          .modal-header
+            h5#exampleModalLongTitle.modal-title.mx-auto Prijava
+          .modal-body(style='opacity:80%')
+            form#loginform.text-center.mx-auto(action='/login', method='POST')
+              .form-group.text-left
+                label(for='InputUsername') Korisničko ime
+                input#inputUsername.form-control(name='username', placeholder='Unesi korisničko ime', required='', type='text')
+              .form-group.text-left
+                label(for='InputPassword') Lozinka
+                input#inputPassword.form-control(name='password', placeholder='Unesi lozinku', required='', type='password')
+              button.btn.btn-danger.m-2(type='button', data-dismiss='modal') Odustani
+              button#btn-login.btn.text-white.m-2(type='submit', style='background-color: #9179b9') Prijava
+          .modal-footer
+            a(href='#registerModal', data-toggle='modal', data-dismiss='modal') Nemaš račun? Registiraj se!
+   
+    // Registration
+    #registerModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
+      .modal-dialog.modal-dialog-centered(role='document')
+        .modal-content.bg-dark.text-white.p-5(style='-webkit-box-shadow: 0px -1px 43px 14px rgba(0,0,0,0.47);\
+        -moz-box-shadow: 0px -1px 43px 14px rgba(0,0,0,0.47);\
+        box-shadow: 0px -1px 43px 14px rgba(0,0,0,0.47);')
+          .modal-header
+            h5#exampleModalLongTitle.modal-title.mx-auto Registracija
+          .modal-body
+            form#registerfrom.text-center.mx-auto(action='/register', method='POST')
+              .form-group.text-left
+                label(for='InputUsername') Korisničko ime
+                input#inputUsernameR.form-control(name='Newusername', placeholder='Unesi korisničko ime', required='', type='text')
+              .form-group.text-left
+                label(for='InputEmail') E-mail adresa
+                input#inputEmailR.form-control(name='Newemail', placeholder='Unesi e-mail adresu', required='', type='email')
+              .form-group.text-left
+                label(for='InputPassword') Lozinka
+                input#inputPasswordR.form-control(name='Newpassword', placeholder='Unesi lozinku', required='', type='password')
+              .form-group.text-left
+                label(for='InputPasswordAgain') Ponovite lozinku
+                input#inputPasswordRC.form-control(name='confirmPassword', placeholder='Unesi ponovno lozinku', required='', type='password')
+              button.btn.btn-danger.m-2(type='button', data-dismiss='modal') Odustani
+              button#btn-registration.btn.btn-success.m-2(type='submit') Registriraj se
+    
+    // tijelo s tekstom
+    .container.mt-4
+      h3 Dobro došli!
+      p
+        | Sustav rezervacije za male restorane i pomoć restoranima da više rezervacija obave online,
+        | povećaju kapacitet gostiju, poboljšaju uslugu, uštede vrijeme...
+      .row.text-center
+        .col-md-4
+          img.rounded-circle(src='../assets/images/resIcon.png', alt='Generic placeholder image', width='140', height='140')
+          h5.text-danger 1.korak
+          p
+            | Odaberi restoran! Prouči restorane koji su ponuđeni; njihov popis jelovnika, osnovne kontakt informacije
+            | i odaberi onaj koji ti se najviše sviđa.
+        .col-md-4
+          img.rounded-circle(src='../assets/images/calIcon.png', alt='Generic placeholder image', width='140', height='140')
+          h5.text-warning 2.korak
+          p
+            | Odaberi termin! Na jednostavan način izaberi datum rezervacije uz željeni termin koji ti najviše odgovara.
+        .col-md-4
+          img.rounded-circle(src='../assets/images/tableIcon.png', alt='Generic placeholder image', width='140', height='140')
+          h5.text-success 3.korak
+          p
+            | Odaberi stol! Sustav prikazuje tlocrt restorana. Pretražuje stolove na temljenu odabranog termina i 
+            | prikazuje one slobodne koje možeš odabrati.
+    
+    // slajd slika
+    #demo.carousel.slide(data-ride='carousel')
+      // Indicators
+      ul.carousel-indicators
+        li.active(data-target='#demo', data-slide-to='0')
+        li(data-target='#demo', data-slide-to='1')
+        li(data-target='#demo', data-slide-to='2')
+      // The slideshow
+      .carousel-inner
+        .carousel-item.active
+          img.w-100(src='./assets/images/pizza.jpg', alt='Pizza')
+        .carousel-item
+          img.w-100(src='./assets/images/wine.jpg', alt='Wine')
+        .carousel-item
+          img.w-100(src='./assets/images/two.jpg', alt='Pasta')
+        .carousel-item
+          img.w-100(src='./assets/images/chicken.jpg', alt='Chicken')
+        .carousel-item
+          img.w-100(src='./assets/images/waiter.jpeg', alt='waiter')
+      // Left and right controls
+      a.carousel-control-prev(href='#demo', data-slide='prev')
+        span.carousel-control-prev-icon
+      a.carousel-control-next(href='#demo', data-slide='next')
+        span.carousel-control-next-icon
+    footer.text-center.text-muted.my-2 © Ivona Ostojić 2018
+    // Optional JavaScript
+    // jQuery first, then Popper.js, then Bootstrap JS
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')

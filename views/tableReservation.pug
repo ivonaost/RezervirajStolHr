@@ -1,0 +1,103 @@
+extends layout
+
+block content
+        
+    .container
+        form.mx-auto.col-lg-8.col-10(action='/endReservation', method='get')
+            .modal-content.bg-dark.text-white.p-5(style='-webkit-box-shadow: 0px -1px 43px 14px rgba(0,0,0,0.47);          -moz-box-shadow: 0px -1px 43px 14px rgba(0,0,0,0.47);          box-shadow: 0px -1px 43px 14px rgba(0,0,0,0.47);')
+                .modal-header
+                    h5.modal-title Odabir stola u restoranu #{prompt}
+                .modal-body
+                    .mx-auto
+                        p.text-muted.font-italic
+                            | Molimo imajte na umu da plan stolova u restoranu nije prikazan u realnom mjerilu.
+                        //#insertTableDiv
+                        // prostor za tlocrt stolova
+                        div
+                            table.tablesClass.table-sm.my-5.col-lg-9.col-12.mx-auto(id='')
+                                tbody
+                                    tr.my-2.Arow
+                                        td.col-2.A1
+                                            img(style='width:99%;', src='', alt='table')
+                                        td.col-2.A2
+                                            img(style='width:99%;', src='', alt='table')
+                                        td.col-2.A3
+                                            img(style='width:99%;', src='', alt='table')
+                                        td.col-2.A4
+                                            img(style='width:99%;', src='', alt='table')
+                                        td.col-2.A5
+                                            img(style='width:99%;', src='', alt='table')
+                                    tr.my-2.Brow
+                                        td.col-2.B1
+                                            img(style='width:99%;', src='', alt='table')
+                                        td.col-2.B2
+                                            img(style='width:99%;', src='', alt='table')
+                                        td.col-2.B3
+                                            img(style='width:99%;', src='', alt='table')
+                                        td.col-2.B4
+                                            img(style='width:99%;', src='', alt='table')
+                                        td.col-2.B5
+                                            img(style='width:99%;', src='', alt='table')
+                                    tr.my-2.Crow
+                                        td.col-2.C1
+                                            img(style='width:99%;', src='', alt='table')
+                                        td.col-2.C2
+                                            img(style='width:99%;', src='', alt='table')
+                                        td.col-2.C3
+                                            img(style='width:99%;', src='', alt='table')
+                                        td.col-2.C4
+                                            img(style='width:99%;', src='', alt='table')
+                                        td.col-2.C5
+                                            img(style='width:99%;', src='', alt='table')
+                                    tr.my-2.Drow
+                                        td.col-2.D1
+                                            img(style='width:99%;', src='', alt='table')
+                                        td.col-2.D2
+                                            img(style='width:99%;', src='', alt='table')
+                                        td.col-2.D3
+                                            img(style='width:99%;', src='', alt='table')
+                                        td.col-2.D4
+                                            img(style='width:99%;', src='', alt='table')
+                                        td.col-2.D5
+                                            img(style='width:99%;', src='', alt='table')
+                                    tr.my-2.Erow
+                                        td.col-2.E1
+                                            img(style='width:99%;', src='', alt='table')
+                                        td.col-2.E2
+                                            img(style='width:99%;', src='', alt='table')
+                                        td.col-2.E3
+                                            img(style='width:99%;', src='', alt='table')
+                                        td.col-2.E4
+                                            img(style='width:99%;', src='', alt='table')
+                                        td.col-2.E5
+                                            img(style='width:99%;', src='', alt='table')              
+                
+        
+                        // Legenda
+                        .float-right
+                            table.table-sm.table-responsive
+                                tbody
+                                    tr
+                                        td
+                                            img(style='width:25px;', src='./assets/images/tlocrti/freetable.png', alt='')
+                                        td Slobodno
+                                    tr
+                                        td
+                                            img(style='width:25px;', src='./assets/images/tlocrti/reservedtable.png', alt='')
+                                        td Zauzeto
+                                    tr
+                                        td
+                                            img(style='width:25px;', src='./assets/images/tlocrti/clickedtable.png', alt='')
+                                        td Odabrano
+                .modal-footer
+                    a.btn.btn-danger(href='/restaurants') Odustani
+                    button.endBtn.btn.btn-success(type='submit') Rezerviraj
+                    script.
+                       
+                        document.querySelector("#RestaurantPage").classList.add("active");
+                    
+
+
+    script(src='./assets/scripts/tables.js')       
+                        
+            

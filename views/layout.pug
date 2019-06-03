@@ -1,0 +1,70 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    // Bootstrap CSS
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+    script(defer='', src='https://use.fontawesome.com/releases/v5.0.10/js/all.js', integrity='sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+', crossorigin='anonymous')
+    script(src='https://code.jquery.com/jquery-3.3.1.min.js')
+    script(src='https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js', type='text/javascript')
+    link(href='https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css', rel='stylesheet', type='text/css')
+    title RezervirajStol.hr
+  body.bg(style='background-image:url(./assets/images/fruit.jpg); background-repeat: no-repeat;\
+  background-attachment: fixed;')
+    // Navigacija
+    nav.nav.navbar.navbar-expand-lg.bg-dark.navbar-dark.sticky-top.mb-3(style='-webkit-box-shadow: 0px 10px 24px 0px rgba(0,0,0,0.75);\
+    -moz-box-shadow: 0px 10px 24px 0px rgba(0,0,0,0.75);\
+    box-shadow: 0px 10px 24px 0px rgba(0,0,0,0.75);\
+    border-top: 2px solid white')
+      ul.navbar-nav.nav
+        li.nav-item.dropdown
+          a#userNav.nav-link.dropdown-toggle.text-white(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')= ImeKorisnika
+            // ime korisnika
+          .dropdown-menu(aria-labelledby='navbarDropdown')
+            a.dropdown-item(href='#') Podaci
+            a.dropdown-item(href='#', data-toggle='modal', data-target='#changePswd') Promijeni lozinku
+            .dropdown-divider
+            form.dropdown-item(action='/logout', method='POST')
+              button.btn.bg-white(type='submit') Odjava
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavAltMarkup', aria-controls='navbarNavAltMarkup', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarNavAltMarkup.collapse.navbar-collapse.justify-content-end
+        ul.navbar-nav.nav
+          li.nav-item
+            a#homePage.nav-link(href='/') Početna
+          li.nav-item
+            a#myReservationPage.nav-link(href='/'+ImeKorisnika) Moje rezervacije
+          li.nav-item
+            a#RestaurantPage.nav-link(href='/restaurants') Restorani
+          li.nav-item
+            a#ActionPage.nav-link(href='/actions') Akcije!
+    
+    // Mijenjanje lozinke
+    #changePswd.modal.fade(abindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+      .modal-dialog.modal-dialog-centered(role='document')
+        .modal-content.bg-light
+          .modal-header
+            h5#exampleModalLabel.modal-title Promijeni lozinku
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+          .modal-body
+            form
+              .form-group.text-left
+                label(for='InputPassword') Nova lozinka
+                input#inputPassword.form-control(placeholder='Unesi novu lozinku', required='', type='password')
+              .form-group.text-left
+                label(for='InputPassword') Ponovi
+                input#inputPassword.form-control(placeholder='Unesi novu lozinku', required='', type='password')
+          .modal-footer
+            button.btn.btn-danger(type='button', data-dismiss='modal') Odustani
+            button.btn.text-white(type='button', style='background-color: #9179b9', data-dismiss='modal') Spremi
+
+    block content
+
+    footer.text-center.text-white.my-2 © Ivona Ostojić 2018
+    // Optional JavaScript
+    // jQuery first, then Popper.js, then Bootstrap JS
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')
