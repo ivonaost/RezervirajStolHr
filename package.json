@@ -9,7 +9,7 @@
   "author": "ivona ostojic",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^3.0.0",
+    "bcrypt": "^5.0.0",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
     "express-list-endpoints": "^3.0.1",
